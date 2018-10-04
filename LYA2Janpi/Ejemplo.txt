@@ -1,0 +1,8 @@
+int n ;
+int e ;
+begin 
+print e = e ;
+if e = e 
+then print e = 2
+else print e = 3
+end
