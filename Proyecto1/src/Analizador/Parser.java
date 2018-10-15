@@ -107,16 +107,17 @@ public class Parser {
 			Come(Id);
 			//Come un punto y coma.
 			Come(Semi);
-			//Agrega al arbol de declaraciones una nueva declaracion.
+			//Agrega al arbol de declaraciones una nueva declaraci�n.
 			declaracion = new DefaultMutableTreeNode(type);
 			declaracion.add(new DefaultMutableTreeNode(identifier));
+			declaracion.add(new DefaultMutableTreeNode(noLinea));
 			//A�ade el nodo declaracion al arbol declaraciones.
 			declaraciones.add(declaracion);
 			//Llamado recursivo.
 			Declarations();
 		}
 	}
-	//Metodo para la creacion y verificacion de los estatutos, regresa un estatuto.
+	//M�todo para la creacion y verificacion de los estatutos, regresa un estatuto.
 	Statement Statements() throws UnexpectedTokenException{
 		switch(tokenCode){
 			//Aqui se verifica el if.
@@ -158,15 +159,16 @@ public class Parser {
 				break;
 			case Print:
 				Come(Print);
-				//guarda una expresion de tipo comparacion
+				//guarda una expresi�n de tipo comparacion
 				Comparation e = (Comparation) Expresion();
 				Avanza();
-				//Guarda en nodos de arbol la informacion.
+				//Guarda en nodos de arbol la informaci�n.
 				statement = new DefaultMutableTreeNode("Print");
 				//Hijos del nodo de statement
 				statement.add(new DefaultMutableTreeNode(e.getSimbolo()));
 				statement.add(new DefaultMutableTreeNode(e.getExp1()));
 				statement.add(new DefaultMutableTreeNode(e.getExp2()));
+				statement.add(new DefaultMutableTreeNode(noLinea));
 				//Guarda los nodos en un arbol de estatutos
 				statements.add(statement);
 				break;
@@ -179,7 +181,7 @@ public class Parser {
 		}
 		return null;
 	}
-	//Metodo para realizar la parte de la expression de igualdad.
+	//M�todo para realizar la parte de la expression de igualdad.
 	Expression Expresion() throws UnexpectedTokenException{
 		//Crea un objeto de tipo identificador con el token.
 		Identifier identifier = new Identifier(token);
@@ -203,7 +205,7 @@ public class Parser {
 				break;
 			case "float":
 				code = Float;
-				break;
+				break;                                                   
 			case ";":
 				code = Semi;
 				break;

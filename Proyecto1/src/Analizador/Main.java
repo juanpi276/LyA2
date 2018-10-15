@@ -16,8 +16,8 @@ public class Main {
 		//inicializa la lista.
 		tokens = new LinkedList<LinkedList<String>>();
 		try {
-			//Llama al metodo para que lea el archivo y lo parta en tokens.
-			LeerArchivo("C:\\Users\\JuanPablo\\Desktop\\Proyecto 2\\Ejemplo.txt");
+			//Llama al m�todo para que lea el archivo y lo parta en tokens.
+			LeerArchivo("C:\\Users\\JuanPablo\\Desktop\\Proyecto1\\Ejemplo.txt");
 		}catch (FileNotFoundException e) {e.printStackTrace();} 
 		catch (IOException e) {e.printStackTrace();}
 		//Crea un nuevo objeto de tipo parser y comienza a hacer las operaciones.
@@ -49,7 +49,7 @@ public class Main {
 		LinkedList<String> l = new LinkedList<String> ();
 		//Parte en tokens la cadena que llega.
 		StringTokenizer t = new StringTokenizer(cad);
-		//Hace esta funcion mientras haya mas tokens.
+		//Hace esta funci�n mientras haya mas tokens.
 		while(t.hasMoreTokens()){
 			l.add(t.nextToken());
 		}
